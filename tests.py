@@ -52,7 +52,6 @@ try:
 
     # Soumettre le formulaire et naviguer à travers l'application
     wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()
-    wait.until(EC.element_to_be_clickable((By.XPATH, "//h2[normalize-space()='Owners']")))
     wait.until(EC.element_to_be_clickable((By.XPATH, "//span[normalize-space()='Veterinarians']"))).click()
     wait.until(EC.element_to_be_clickable((By.XPATH, "//h2[normalize-space()='Veterinarians']")))
 
