@@ -35,13 +35,13 @@ try:
     last_name.send_keys(fake.last_name())
 
     address = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@name='address']")))
-    address.send_keys(self.fake.street_address())
+    address.send_keys(fake.street_address())
 
     city = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@name='city']")))
-    city.send_keys(self.fake.city())
+    city.send_keys(fake.city())
 
     phoneNumber = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@placeholder='905554443322']")))
-    phoneNumber.send_keys(self.fake.numerify(text='############'))
+    phoneNumber.send_keys(fake.numerify(text='############'))
 
     # Soumettre le formulaire et naviguer à travers l'application
     wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))).click()
