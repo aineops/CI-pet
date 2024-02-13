@@ -8,14 +8,20 @@ from selenium.webdriver.support import expected_conditions as EC
 from faker import Faker
 
 print("Démarrage du test Selenium...")
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+options = Options()
+options.add_argument('--headless')  # Activer le mode headless
+
+# Créer une instance du pilote Chrome avec les options spécifiées
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 wait = WebDriverWait(driver, 10)
 fake = Faker()
 
 try:
     print("Test Selenium en cours...")
+    driver.maximize_window()
     # Naviguer vers la page d'accueil de l'application
     driver.get("http://localhost:8080/")
+
 
     # Vérifier la présence de l'onglet 'Home' et naviguer dans l'application
     home_tab = wait.until(EC.presence_of_element_located((By.XPATH, "//span[normalize-space()='Home']")))
