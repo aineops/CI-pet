@@ -22,6 +22,12 @@ try:
     # S'assurer que l'onglet Home est bien présent
     assert home_tab.is_displayed(), "L'onglet 'Home' n'est pas affiché."
 
+    button = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[@role='button']")))
+    button.click()
+    
+    register_link = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[normalize-space()='Register']")))
+    register_link.click()
+
     first_name = wait.until(EC.element_to_be_clickable((By.NAME, "firstName")))
     first_name.send_keys(fake.first_name())
 
@@ -50,4 +56,3 @@ try:
 finally:
     # Ferme le navigateur après avoir terminé les tests
     driver.quit()
-    print("Test Selenium terminé.")
